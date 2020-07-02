@@ -5,32 +5,35 @@ import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 
-import static io.restassured.RestAssured.*;
-import static io.restassured.matcher.RestAssuredMatchers.*;
-import static org.hamcrest.Matchers.*;
-
 public class GOTTester {
+    CharacterDTO characterDTO = new CharacterDTO();
     GOTFileReader gotFileReader = new GOTFileReader();
-    GOTPOJO charactersForTest = gotFileReader.readURLA("https://anapioficeandfire.com/api/characters/583");
+    HeaderDTO headers = new HeaderDTO();
+    //GOTPOJO charactersForTest = gotFileReader.readURLA("https://anapioficeandfire.com/api/characters/583");
 
     @Test
     void checkName () {
-        Assertions.assertEquals("Jon Snow", charactersForTest.getName());
+        Assertions.assertEquals("Jon Snow", characterDTO.fetchName());
     }
 
     @Test
     void checkGender () {
-        Assertions.assertEquals("Male", charactersForTest.getGender());
+        Assertions.assertEquals("Male", characterDTO.fetchGender());
     }
 
     @Test
     void checkCulture () {
-        Assertions.assertEquals("Northmen", charactersForTest.getCulture());
+        Assertions.assertEquals("Northmen", characterDTO.fetchCulture());
     }
 
     @Test
     void checkResponseCode () throws IOException {
         Assertions.assertEquals(200, gotFileReader.getURL());
+    }
+
+    @Test
+    void checkHeaders () throws IOException {
+        Assertions.assertEquals("keep-alive", headers.getHeaders());
     }
 
 
