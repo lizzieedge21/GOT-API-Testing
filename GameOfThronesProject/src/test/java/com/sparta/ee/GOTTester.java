@@ -6,13 +6,12 @@ import org.junit.jupiter.api.Test;
 import java.io.IOException;
 
 public class GOTTester {
-    CharacterDTO characterDTO = new CharacterDTO();
+    CharacterDTO characterDTO = new CharacterDTO("https://anapioficeandfire.com/api/characters/583");
     GOTFileReader gotFileReader = new GOTFileReader();
     HeaderDTO headers = new HeaderDTO();
-    //GOTPOJO charactersForTest = gotFileReader.readURLA("https://anapioficeandfire.com/api/characters/583");
 
     @Test
-    void checkName () {
+    void checkName() {
         Assertions.assertEquals("Jon Snow", characterDTO.fetchName());
     }
 
@@ -28,7 +27,7 @@ public class GOTTester {
 
     @Test
     void checkResponseCode () throws IOException {
-        Assertions.assertEquals(200, gotFileReader.getURL());
+        Assertions.assertEquals(200, gotFileReader.getResponseCode());
     }
 
     @Test

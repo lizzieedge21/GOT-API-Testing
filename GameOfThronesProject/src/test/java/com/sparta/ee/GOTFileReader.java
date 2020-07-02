@@ -21,7 +21,7 @@ public class GOTFileReader {
         return gotpojo;
     }
 
-    public int getURL () throws IOException {
+    public int getResponseCode() throws IOException {
         URL url = new URL("https://anapioficeandfire.com/api/characters/583");
         URLConnection urlConnection = url.openConnection();
         HttpURLConnection httpURLConnection = (HttpURLConnection)url.openConnection();

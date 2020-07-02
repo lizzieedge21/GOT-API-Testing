@@ -6,23 +6,11 @@ import java.util.List;
 public class CharacterDTO {
     private GOTPOJO gotpojo;
 
-public void characterDTO (String jacksonLocation) {
-    GOTFileReader gotFileReader = new GOTFileReader();
-    gotpojo = gotFileReader.readURLA(jacksonLocation);
+    public CharacterDTO (String jacksonLocation) {
+        GOTFileReader gotFileReader = new GOTFileReader();
+        gotpojo = gotFileReader.readURLA(jacksonLocation);
+    }
 
-}
-
-//public int fetchNumberOfValues () {
-//    return gotpojo.
-//}
-
-public List<String> fetchAliases () {
-    return gotpojo.getAliases();
-}
-
-public List<String> fetchAllegiances () {
-    return gotpojo.getAllegiances();
-}
 
 public String fetchName () {
     return gotpojo.getName();
@@ -35,9 +23,6 @@ public String fetchGender () {
 public String fetchCulture () {
     return gotpojo.getCulture();
 }
-
-
-
-
+//hello world
 
 }
