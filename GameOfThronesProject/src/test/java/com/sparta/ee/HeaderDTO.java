@@ -1,20 +1,58 @@
 package com.sparta.ee;
 
+import java.awt.*;
 import java.io.IOException;
 import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
 
 public class HeaderDTO {
 
-    private HttpURLConnection httpURLConnection;
-
-    public String getHeaders () throws IOException {
+        GOTFileReader gotFileReader;
         URL url = new URL("https://anapioficeandfire.com/api/characters/583");
         URLConnection urlConnection = url.openConnection();
-        httpURLConnection = (HttpURLConnection)url.openConnection();
-        String header = httpURLConnection.getHeaderField("Connection");
-        return header;
+
+    public HeaderDTO (String jacksonLocation) throws IOException {
+            GOTFileReader gotFileReader = new GOTFileReader();
+
+        }
+
+        public int getAmountOfHeaders () {
+            return gotFileReader.getHeaders().size();
+        }
+
+        public Boolean emptyHeader () {
+            return gotFileReader.getHeaders().isEmpty();
+        }
+
+        public boolean headerValues (String value) {
+            return gotFileReader.getHeaders().containsValue(value);
+        }
+
+        public boolean headerKeys(String key) {
+            return gotFileReader.getHeaders().containsKey(key);
+        }
+
+        public String serverHeader () throws IOException {
+            return urlConnection.getHeaderField("Server");
+        }
+
+        public String connectionHeader () throws IOException {
+            return urlConnection.getHeaderField("Connection");
+        }
+
+        public String transferHeader () {
+            return urlConnection.getHeaderField("Transfer-Encoding");
+        }
+
+
+
+
+
+
+
+
+
     }
 
-}

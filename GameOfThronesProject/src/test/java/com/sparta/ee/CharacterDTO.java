@@ -1,12 +1,13 @@
 package com.sparta.ee;
 
 import javax.servlet.http.HttpServletRequest;
+import java.net.MalformedURLException;
 import java.util.List;
 
 public class CharacterDTO {
     private GOTPOJO gotpojo;
 
-    public CharacterDTO (String jacksonLocation) {
+    public CharacterDTO (String jacksonLocation) throws MalformedURLException {
         GOTFileReader gotFileReader = new GOTFileReader();
         gotpojo = gotFileReader.readURLA(jacksonLocation);
     }
@@ -23,6 +24,4 @@ public String fetchGender () {
 public String fetchCulture () {
     return gotpojo.getCulture();
 }
-
-
 }

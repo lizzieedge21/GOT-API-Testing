@@ -4,11 +4,19 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.io.IOException;
 import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
+import java.util.List;
+import java.util.Map;
 
 public class GOTFileReader {
     ObjectMapper objectMapper = new ObjectMapper();
+    private HttpURLConnection httpURLConnection;
+    URL url = new URL("https://anapioficeandfire.com/api/characters/583");
+
+    public GOTFileReader() throws MalformedURLException {
+    }
 
     public GOTPOJO readURLA (String path) {
         GOTPOJO gotpojo = new GOTPOJO();
@@ -22,12 +30,26 @@ public class GOTFileReader {
     }
 
     public int getResponseCode() throws IOException {
-        URL url = new URL("https://anapioficeandfire.com/api/characters/583");
         URLConnection urlConnection = url.openConnection();
         HttpURLConnection httpURLConnection = (HttpURLConnection)url.openConnection();
         int responseCode = httpURLConnection.getResponseCode();
         return responseCode;
 
     }
+
+    public Map<String, List<String>> getHeaders () {
+        try {
+            url.openConnection();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        try {
+            httpURLConnection = (HttpURLConnection)url.openConnection();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return httpURLConnection.getHeaderFields();
+    }
+
 
 }

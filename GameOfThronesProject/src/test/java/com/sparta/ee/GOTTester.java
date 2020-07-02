@@ -1,14 +1,20 @@
 package com.sparta.ee;
 
+import org.hamcrest.core.Is;
+import org.junit.Assert;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
+import java.net.MalformedURLException;
 
 public class GOTTester {
     CharacterDTO characterDTO = new CharacterDTO("https://anapioficeandfire.com/api/characters/583");
     GOTFileReader gotFileReader = new GOTFileReader();
-    HeaderDTO headers = new HeaderDTO();
+    HeaderDTO headers = new HeaderDTO("https://anapioficeandfire.com/api/characters/583");
+
+    public GOTTester() throws IOException {
+    }
 
     @Test
     void checkName() {
@@ -31,9 +37,25 @@ public class GOTTester {
     }
 
     @Test
-    void checkHeaders () throws IOException {
-        Assertions.assertEquals("keep-alive", headers.getHeaders());
+    void checkEmptyHeader () {
+        Assertions.assertEquals(false, headers.emptyHeader());
     }
+
+    @Test
+    void checkServer () throws IOException {
+        Assertions.assertEquals("cloudflare", headers.serverHeader());
+    }
+
+    @Test
+    void checkConnection () throws IOException {
+        Assertions.assertEquals("keep-alive", headers.connectionHeader());
+    }
+
+
+
+
+
+
 
 
 }
