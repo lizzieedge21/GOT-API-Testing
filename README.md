@@ -11,6 +11,12 @@ How to use my framework:
 
 - This allows the Tester Class to be what the tester will make use of and decide what kinds of test they will want to run and what is of significance to them and their clients. 
 
+Structure
+- DTO 
+- File Reader
+- POJO 
+- Tester Class
+
 Tools
 - Intelliji
 - Postman
