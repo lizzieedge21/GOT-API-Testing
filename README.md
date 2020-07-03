@@ -11,6 +11,23 @@ How to use my framework:
 
 - This allows the Tester Class to be what the tester will make use of and decide what kinds of test they will want to run and what is of significance to them and their clients. 
 
+What tests can you perform? 
+- Data Type
+- Values 
+- Headers 
+- Response Code
+
+Structure
+- DTO 
+- File Reader
+- POJO 
+- Tester Class
+
+Tools
+- Intelliji
+- Postman
+- Github
+
 Limitations 
 - Certain things cannot be tested - such as the date as this is constantly changing however we can test whether the return type is what we expect of a date. 
 
