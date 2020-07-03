@@ -13,16 +13,15 @@ public class HeaderDTO {
         URL url = new URL("https://anapioficeandfire.com/api/characters/583");
         URLConnection urlConnection = url.openConnection();
 
-    public HeaderDTO (String jacksonLocation) throws IOException {
-            GOTFileReader gotFileReader = new GOTFileReader();
+    public HeaderDTO() throws IOException {
+    }
 
-        }
 
-        public int getAmountOfHeaders () {
+    public int getAmountOfHeaders () {
             return gotFileReader.getHeaders().size();
         }
 
-        public Boolean emptyHeader () {
+        public boolean emptyHeader () {
             return gotFileReader.getHeaders().isEmpty();
         }
 
@@ -45,6 +44,8 @@ public class HeaderDTO {
         public String transferHeader () {
             return urlConnection.getHeaderField("Transfer-Encoding");
         }
+
+
 
 
 

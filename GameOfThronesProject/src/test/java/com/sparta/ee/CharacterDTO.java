@@ -24,4 +24,31 @@ public String fetchGender () {
 public String fetchCulture () {
     return gotpojo.getCulture();
 }
+
+public String fetchDied () {
+        return gotpojo.getDied();
 }
+
+public String fetchBorn () {
+        return gotpojo.getBorn();
+}
+
+public List<String> fetchBooks () {
+        return gotpojo.getBooks();
+}
+
+public List<String> fetchTitles () {
+        return gotpojo.getTitles();
+}
+
+public boolean isString () {
+        return gotpojo.getName().matches("Jon Snow");
+}
+
+
+
+
+}
+
+
+

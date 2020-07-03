@@ -37,7 +37,7 @@ public class GOTFileReader {
 
     }
 
-    public Map<String, List<String>> getHeaders () {
+    public Map getHeaders () {
         try {
             url.openConnection();
         } catch (IOException e) {

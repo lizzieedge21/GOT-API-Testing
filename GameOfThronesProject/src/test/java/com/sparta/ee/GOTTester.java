@@ -11,7 +11,7 @@ import java.net.MalformedURLException;
 public class GOTTester {
     CharacterDTO characterDTO = new CharacterDTO("https://anapioficeandfire.com/api/characters/583");
     GOTFileReader gotFileReader = new GOTFileReader();
-    HeaderDTO headers = new HeaderDTO("https://anapioficeandfire.com/api/characters/583");
+    HeaderDTO headers = new HeaderDTO();
 
     public GOTTester() throws IOException {
     }
@@ -42,6 +42,11 @@ public class GOTTester {
     }
 
     @Test
+    void checkSizeOfHeaders () {
+        Assertions.assertEquals(14, headers.getAmountOfHeaders());
+    }
+
+    @Test
     void checkServer () throws IOException {
         Assertions.assertEquals("cloudflare", headers.serverHeader());
     }
@@ -50,6 +55,23 @@ public class GOTTester {
     void checkConnection () throws IOException {
         Assertions.assertEquals("keep-alive", headers.connectionHeader());
     }
+
+    @Test
+    void checkTransfer () {
+        Assertions.assertEquals("chunked", headers.transferHeader());
+    }
+
+    @Test
+    void checkIsString () {
+        Assertions.assertEquals(true, characterDTO.isString());
+    }
+
+    @Test
+    void checkValues () {
+        Assertions.assertEquals(true, headers.headerKeys("Vary"));
+    }
+
+
 
 
 
