@@ -30,7 +30,7 @@ public class GOTFileReader {
     }
 
     public int getResponseCode() throws IOException {
-        URLConnection urlConnection = url.openConnection();
+        url.openConnection();
         HttpURLConnection httpURLConnection = (HttpURLConnection)url.openConnection();
         int responseCode = httpURLConnection.getResponseCode();
         return responseCode;
@@ -48,7 +48,7 @@ public class GOTFileReader {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return httpURLConnection.getHeaderFields();
+        return (Map) httpURLConnection;
     }
 
 

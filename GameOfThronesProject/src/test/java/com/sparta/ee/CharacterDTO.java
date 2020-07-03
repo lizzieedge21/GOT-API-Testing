@@ -7,11 +7,15 @@ import java.util.List;
 public class CharacterDTO {
     private GOTPOJO gotpojo;
 
-    public CharacterDTO (String jacksonLocation) throws MalformedURLException {
+    public CharacterDTO () throws MalformedURLException {
         GOTFileReader gotFileReader = new GOTFileReader();
-        gotpojo = gotFileReader.readURLA(jacksonLocation);
+        gotpojo = gotFileReader.readURLA("https://anapioficeandfire.com/api/characters/583");
     }
 
+
+    public boolean isString () {
+        return gotpojo.getName().matches("Jon Snow");
+    }
 
 public String fetchName () {
     return gotpojo.getName();
@@ -41,9 +45,18 @@ public List<String> fetchTitles () {
         return gotpojo.getTitles();
 }
 
-public boolean isString () {
-        return gotpojo.getName().matches("Jon Snow");
+public List<String> fetchTV () {
+        return gotpojo.getTvSeries();
 }
+
+public String fetchFather () {
+        return gotpojo.getFather();
+}
+
+public String fetchMother () {
+        return gotpojo.getMother();
+}
+
 
 
 

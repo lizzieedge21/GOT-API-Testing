@@ -16,7 +16,6 @@ public class HeaderDTO {
     public HeaderDTO() throws IOException {
     }
 
-
     public int getAmountOfHeaders () {
             return gotFileReader.getHeaders().size();
         }
@@ -44,6 +43,16 @@ public class HeaderDTO {
         public String transferHeader () {
             return urlConnection.getHeaderField("Transfer-Encoding");
         }
+
+        public String contentHeader () {
+        return urlConnection.getHeaderField("Content-Encoding");
+        }
+
+        public String date () {
+        return urlConnection.getHeaderField("Date");
+        }
+
+
 
 
 
